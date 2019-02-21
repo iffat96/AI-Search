@@ -7,6 +7,7 @@
 * Assignment 2: Implementation of Search Methods
 */
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Graph {
   int[][] matrix;  // The adjacencyk matrix for the graph
@@ -368,5 +369,46 @@ public class Graph {
     g6.printMatrix();
     g6.depthFirst(1, 3);
     g6.depthFirst(3, 2);
+    
+    Scanner scan = new Scanner(System.in);
+    int graphInput = scan.nextInt();
+    switch (graphInput) {
+    case 1: 
+    	System.out.println("\nThis graph has unweighted, non-directional edges.");
+    	g1.printMatrix();
+        g1.tryEmAll();
+        g1.depthFirst(1, 7);
+        break;
+    case 2: 
+    	System.out.println("\nThis graph has weighted, non-directional edges.");
+    	g2.printMatrix();
+        g2.tryEmAll();
+        break;
+    case 3: 
+    	System.out.println("\n\nThis graph has unweighted, directional edges.");
+    	g3.printMatrix();
+        g3.tryEmAll(); 
+        break;
+    case 4: 
+    	System.out.println("\n\nThis graph has weighted, directional edges.");
+    	g4.printMatrix();
+        g4.tryEmAll();
+        break;
+    case 5: 
+        System.out.println("\n\nThis graph has 3 nodes, with no edges."); 
+        g5.printMatrix();
+        // Search through graph five, using every valid combination of
+        // start and accept states.
+        g5.tryEmAll();
+        break;
+    case 6: 
+    	System.out.println("\n\nThis graph has 3 nodes, with unweighted, directional edges.");  
+    	g6.printMatrix();
+        g6.tryEmAll();
+        break;
+    default: 
+        System.out.println("\nInvalid integer: Please input a number from 1-6");
+        break;
+    }
   }
 }
